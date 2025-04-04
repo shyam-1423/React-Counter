@@ -1,0 +1,243 @@
+// ==============================
+// THEME COLORS
+// ==============================
+
+// Light Theme Colors
+$light-bg: #f8f9fa; // Background color for light theme
+$light-text: #212529; // Text color for light theme
+$light-card-bg: rgba(
+  255,
+  255,
+  255,
+  0.7
+); // Card background color with transparency
+$light-hero-bg: linear-gradient(
+  135deg,
+  #6a11cb 0%,
+  #2575fc 100%
+); // Hero section gradient
+
+// Dark Theme Colors
+$dark-bg: #121212; // Background color for dark theme
+$dark-text: #f8f9fa; // Text color for dark theme
+$dark-card-bg: rgba(40, 40, 40, 0.7); // Card background color with transparency
+$dark-hero-bg: linear-gradient(
+  135deg,
+  #070982 0%,
+  #46035a 100%
+); // Hero section gradient
+
+// ==============================
+// GLOBAL STYLES
+// ==============================
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease; // Smooth theme transitions
+  background-color: $light-bg;
+  color: $light-text;
+
+  &.dark-theme {
+    background-color: $dark-bg;
+    color: $dark-text;
+  }
+}
+
+// ==============================
+// THEME STYLES
+// ==============================
+
+// Light Theme
+.light-theme {
+  background-color: $light-bg;
+  color: $light-text;
+
+  .hero-section {
+    background: $light-hero-bg;
+    color: white;
+  }
+
+  .features-section {
+    background-color: rgba(240, 240, 240, 0.7);
+  }
+
+  .glassmorphism {
+    background: $light-card-bg;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  }
+}
+
+// Dark Theme
+.dark-theme {
+  background-color: $dark-bg;
+  color: $dark-text;
+
+  .hero-section {
+    background: $dark-hero-bg;
+    color: white;
+  }
+
+  .features-section {
+    background-color: rgba(30, 30, 30, 0.7);
+  }
+
+  .glassmorphism {
+    background: $dark-card-bg;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+
+// ==============================
+// THEME TOGGLE BUTTON
+// ==============================
+
+.theme-toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    transform: rotate(360deg); // Smooth rotation on hover
+  }
+}
+
+// ==============================
+// HERO SECTION STYLES
+// ==============================
+
+.hero-section {
+  padding: 120px 0 80px;
+  background-size: 400% 400%;
+  animation: moveBg 6s infinite linear; // Animated gradient background
+}
+
+@keyframes moveBg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// ==============================
+// COUNTER STYLES
+// ==============================
+
+.counter-card {
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.counter-display {
+  padding: 30px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+
+  .counter-value {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+}
+
+// ==============================
+// COUNTER ANIMATIONS
+// ==============================
+
+.animate-up {
+  animation: countUp 0.5s ease-out;
+}
+.animate-down {
+  animation: countDown 0.5s ease-out;
+}
+.animate-reset {
+  animation: countReset 0.6s ease-in-out;
+}
+
+@keyframes countUp {
+  0% {
+    transform: perspective(500px) rotateX(90deg) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(500px) rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes countDown {
+  0% {
+    transform: perspective(500px) rotateX(-90deg) scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(500px) rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes countReset {
+  0% {
+    transform: scale(0.8) rotateY(180deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+// ==============================
+// BUTTON STYLES
+// ==============================
+
+.counter-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.counter-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(0.9);
+  }
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.glassmorphism-btn {
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.235);
+}
+
+// ==============================
+// FOOTER STYLES
+// ==============================
+
+.footer {
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: background-color 0.5s ease;
+}
